@@ -35,6 +35,15 @@ const CalculatorScreen = () => {
       setDisplay(number);
       setMemory(number);
       setCalc(false);
+    } else if (
+      number != "0" &&
+      memory[memory.length - 1] === "0" &&
+      disableButton2 === false
+    ) {
+      setDisplay(memory.slice(0, -1) + number);
+      setMemory(memory.slice(0, -1) + number);
+      setDisableButton2(true);
+      return;
     } else if (number != "0") {
       setDisplay(display + number);
       setMemory(memory + number);
